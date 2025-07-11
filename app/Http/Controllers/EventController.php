@@ -10,9 +10,12 @@ class EventController extends Controller
 {
     public function index()
     {
-        $users = User::with(['events' => function($query) {
-            $query->orderBy('valid_from', 'asc');
-        }])->get();
+        $users = User::with([
+            'org',
+            'events' => function($query) {
+                $query->orderBy('valid_from', 'asc');
+            }
+        ])->get();
 
         return view('events.index', compact('users'));
     }

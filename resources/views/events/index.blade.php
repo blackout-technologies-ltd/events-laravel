@@ -36,6 +36,10 @@
             font-weight: bold;
             color: #495057;
         }
+        .org-name {
+            color: #007bff;
+            font-weight: 600;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -97,7 +101,7 @@
         @foreach($users as $user)
             <div class="user-section">
                 <div class="user-header">
-                    {{ $user->name }} ({{ $user->email }}) - {{ $user->events->count() }} events
+                    {{ $user->name }} ({{ $user->email }}) - <span class="org-name">{{ $user->org->name }}</span> - {{ $user->events->count() }} events
                 </div>
                 
                 @if($user->events->count() > 0)
@@ -106,8 +110,8 @@
                             <tr>
                                 <th>Type</th>
                                 <th>Valence</th>
-                                <th>Valid From</th>
-                                <th>Valid To</th>
+                                <th>Valid From (UTC)</th>
+                                <th>Valid To (UTC)</th>
                                 <th>Status</th>
                                 <th>Duration</th>
                             </tr>
