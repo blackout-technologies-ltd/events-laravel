@@ -3,7 +3,7 @@
 ### Backend
 ```Bash
 composer install
-cp env.example .env
+cp .env.example .env
 php artisan key:generate
 php artisan migrate --seed
 (Follow the prompts to create an SQLite DB)
